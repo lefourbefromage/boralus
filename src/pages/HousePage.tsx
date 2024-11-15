@@ -27,6 +27,7 @@ const HousePage: React.FC = () => {
 
   const vinyls = [
     '/assets/stormrage.webp',
+    '/assets/buffalo.webp',
     '/assets/fjord.webp',
     '/assets/hardcore.webp',
     '/assets/monastere.webp',
