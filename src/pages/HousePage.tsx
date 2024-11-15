@@ -26,12 +26,12 @@ const HousePage: React.FC = () => {
   const [activeGallery, setActiveGallery] = useState<'vinyls' | 'books' | null>(null);
 
   const vinyls = [
-    '../src/assets/postal.jpg',
-    '../src/assets/postal.jpg',
+    './assets/postal.jpg',
+    './assets/postal.jpg',
   ];
 
   const books = [
-    '../src/assets/postal.jpg',
+    '../assets/postal.jpg',
     '../src/assets/postal.jpg',
   ];
 
@@ -72,7 +72,7 @@ const HousePage: React.FC = () => {
         <button onClick={() => openGallery('vinyls')} style={{ margin: '10px', padding: '10px 20px' }}>
           Pile de vinyles
         </button>
-        <a className="button" href="../src/assets/books.pdf" target='_blank' style={{ margin: '10px', padding: '10px 20px' }}>
+        <a className="button" href="./assets/books.pdf" target='_blank' style={{ margin: '10px', padding: '10px 20px' }}>
           Livre sur la table
         </a>
         <button onClick={goToChest} style={{ margin: '10px', padding: '10px 20px' }}>
