@@ -26,13 +26,13 @@ const HousePage: React.FC = () => {
   const [activeGallery, setActiveGallery] = useState<'vinyls' | 'books' | null>(null);
 
   const vinyls = [
-    './assets/postal.jpg',
-    './assets/postal.jpg',
+    '/assets/postal.jpg',
+    '/assets/postal.jpg',
   ];
 
   const books = [
-    '../assets/postal.jpg',
-    '../src/assets/postal.jpg',
+    '/assets/postal.jpg',
+    '/assets/postal.jpg',
   ];
 
   const openGallery = (gallery: 'vinyls' | 'books') => {
@@ -52,7 +52,7 @@ const HousePage: React.FC = () => {
   return (
 
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <audio ref={audioRef} src="../src/assets/song.mp3" autoPlay loop />
+        <audio ref={audioRef} src="/assets/song.mp3" autoPlay loop />
         <div
             className='button'
             style={{
