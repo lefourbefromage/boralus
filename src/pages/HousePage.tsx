@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 const HousePage: React.FC = () => {
     const audioRef = useRef<HTMLAudioElement | null>(null); // Référence pour l'élément audio
-    const [isPlaying, setIsPlaying] = useState(false); // État pour gérer le statut de lecture
+    const [isPlaying, setIsPlaying] = useState(true); // État pour gérer le statut de lecture
   
     useEffect(() => {
         if (audioRef.current) {
-          audioRef.current.volume = 0.05; // Définit le volume à 50% au chargement
+          audioRef.current.volume = 0.1; // Définit le volume à 50% au chargement
         }
       }, []);
 
@@ -23,31 +23,25 @@ const HousePage: React.FC = () => {
     };
 
   const navigate = useNavigate();
-  const [activeGallery, setActiveGallery] = useState<'vinyls' | 'books' | null>(null);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   const vinyls = [
-    '/assets/postal.jpg',
-    '/assets/postal.jpg',
+    '/assets/stormrage.webp',
+    '/assets/fjord.webp',
+    '/assets/hardcore.webp',
+    '/assets/monastere.webp',
   ];
-
-  const books = [
-    '/assets/postal.jpg',
-    '/assets/postal.jpg',
-  ];
-
-  const openGallery = (gallery: 'vinyls' | 'books') => {
-    setActiveGallery(gallery);
+  const openGallery = () => {
+    setIsGalleryOpen(true);
   };
 
   const closeGallery = () => {
-    setActiveGallery(null);
+    setIsGalleryOpen(false);
   };
 
   const goToChest = () => {
     navigate('/chest');
   };
-
-  const galleryImages = activeGallery === 'vinyls' ? vinyls : books;
 
   return (
 
@@ -69,7 +63,7 @@ const HousePage: React.FC = () => {
 
       <h1>Bienvenue à la maison</h1>
       <div style={{ marginTop: '20px' }}>
-        <button onClick={() => openGallery('vinyls')} style={{ margin: '10px', padding: '10px 20px' }}>
+        <button onClick={openGallery} style={{ margin: '10px', padding: '10px 20px' }}>
           Pile de vinyles
         </button>
         <a className="button" href="./assets/books.pdf" target='_blank' style={{ margin: '10px', padding: '10px 20px' }}>
@@ -80,63 +74,55 @@ const HousePage: React.FC = () => {
         </button>
       </div>
 
-      {/* Galerie active */}
-      {activeGallery && (
+      {/* Galerie des vinyles */}
+      {isGalleryOpen && (
         <div
           style={{
             position: 'fixed',
             top: 0,
             left: 0,
-            width: '100vw',
-            height: '100vh',
+            width: '100%',
+            height: '100%',
             backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            overflow: 'auto',
-
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            overflow: 'auto'
           }}
           onClick={closeGallery}
         >
-            <div
-                style={{
-                    width: '100vw',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                    flexFlow: 'column',
-                    gap:'20px',
-                    padding: '20px'
-                }}
-            >
-            {galleryImages.map((image, index) => (
-            <a href={image} target='blank' key={index} style={{ display:'block' }}>
+          {vinyls.map((image, index) => (
+            <a href={image} target='_blank' key={index} style={{ margin: '10px' }}>
               <img
                 src={image}
-                alt={`Gallery item ${index + 1}`}
-                style={{ maxWidth: '50vw', maxHeight: '50vh', display: 'block', cursor: 'pointer'}}
+                alt={`Vinyl ${index + 1}`}
+                style={{
+                  maxWidth: '500px',
+                  maxHeight: '500px',
+                  cursor: 'pointer'
+                }}
               />
             </a>
           ))}
-            </div>
-          
           <button
             onClick={closeGallery}
             style={{
-              position: 'fixed',
+              position: 'absolute',
               top: '20px',
-              right: '40px',
-              backgroundColor: 'white',
+              right: '20px',
               border: 'none',
               padding: '10px 15px',
               cursor: 'pointer',
               fontSize: '16px',
               borderRadius: '5px',
-              color: 'black'
             }}
           >
             Fermer
           </button>
         </div>
       )}
+      
     </div>
   );
 };
