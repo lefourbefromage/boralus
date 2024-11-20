@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const HousePage: React.FC = () => {
   const [hoveredClass, setHoveredClass] = useState<string | null>(null);
+
   const audioRef = useRef<HTMLAudioElement | null>(null); // Référence pour l'élément audio
     const [isPlaying, setIsPlaying] = useState(true); // État pour gérer le statut de lecture
   
@@ -46,33 +47,22 @@ const HousePage: React.FC = () => {
   };
 
   const links = [
-    { className: 'house__link--songs', label: 'Pile de vinyles', href: '#', isButton: true },
+    { className: 'house__link--songs', label: 'Pile de vinyles', onClick: openGallery , href: '#', isButton: true },
     { className: 'house__link--book', label: 'Livre sur la table', href: './assets/books.pdf', isButton: false },
     { className: 'house__link--coffre', label: 'Coffre fermé', href: '/chest', isButton: false },
     { className: 'house__link--bag', label: 'Sac', href: '/bag', isButton: false },
   ];
 
-
-
   return (
-
-    <div className="house">
+    <div className={`house ${hoveredClass ? `house--${hoveredClass.split('--')[1]}` : ''}`}>
         <audio ref={audioRef} src="/assets/song.mp3" autoPlay loop />
-        <div
-            className='button'
-            style={{
-            position: 'absolute',
-            top: '10px',
-            left: '10px',
-            cursor: 'pointer',
-            }}
-            onClick={togglePlayPause}
-        >
+        <div className={`house__audio ${isPlaying ? 'house__audio--pause' : ''}`}  onClick={togglePlayPause}>
             {isPlaying ? 'Pause' : 'Play'}
         </div>
 
 
-        <div className={`house ${hoveredClass ? `house--${hoveredClass.split('--')[1]}` : ''}`}>
+        <div >
+          
           {links.map((link, index) =>
             link.isButton ? (
               <button
@@ -80,7 +70,7 @@ const HousePage: React.FC = () => {
                 className={`house__link ${link.className}`}
                 onMouseEnter={() => setHoveredClass(link.className)}
                 onMouseLeave={() => setHoveredClass(null)}
-                onClick={() => console.log(`${link.label} clicked`)}
+                onClick={link.onClick} //
               >
                 {link.label}
               </button>
