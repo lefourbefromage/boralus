@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HousePage: React.FC = () => {
-    const audioRef = useRef<HTMLAudioElement | null>(null); // Référence pour l'élément audio
+  const [hoveredClass, setHoveredClass] = useState<string | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null); // Référence pour l'élément audio
     const [isPlaying, setIsPlaying] = useState(true); // État pour gérer le statut de lecture
   
     useEffect(() => {
@@ -44,9 +45,18 @@ const HousePage: React.FC = () => {
     navigate('/chest');
   };
 
+  const links = [
+    { className: 'house__link--songs', label: 'Pile de vinyles', href: '#', isButton: true },
+    { className: 'house__link--book', label: 'Livre sur la table', href: './assets/books.pdf', isButton: false },
+    { className: 'house__link--coffre', label: 'Coffre fermé', href: '/chest', isButton: false },
+    { className: 'house__link--bag', label: 'Sac', href: '/bag', isButton: false },
+  ];
+
+
+
   return (
 
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+    <div className="house">
         <audio ref={audioRef} src="/assets/song.mp3" autoPlay loop />
         <div
             className='button'
@@ -62,18 +72,32 @@ const HousePage: React.FC = () => {
         </div>
 
 
-      <h1>Bienvenue à la maison</h1>
-      <div style={{ marginTop: '20px' }}>
-        <button onClick={openGallery} style={{ margin: '10px', padding: '10px 20px' }}>
-          Pile de vinyles
-        </button>
-        <a className="button" href="./assets/books.pdf" target='_blank' style={{ margin: '10px', padding: '10px 20px' }}>
-          Livre sur la table
-        </a>
-        <button onClick={goToChest} style={{ margin: '10px', padding: '10px 20px' }}>
-          Coffre fermé
-        </button>
-      </div>
+        <div className={`house ${hoveredClass ? `house--${hoveredClass.split('--')[1]}` : ''}`}>
+          {links.map((link, index) =>
+            link.isButton ? (
+              <button
+                key={index}
+                className={`house__link ${link.className}`}
+                onMouseEnter={() => setHoveredClass(link.className)}
+                onMouseLeave={() => setHoveredClass(null)}
+                onClick={() => console.log(`${link.label} clicked`)}
+              >
+                {link.label}
+              </button>
+            ) : (
+              <a
+                key={index}
+                className={`house__link ${link.className}`}
+                href={link.href}
+                target={link.href.startsWith('./') ? '_blank' : '_self'}
+                onMouseEnter={() => setHoveredClass(link.className)}
+                onMouseLeave={() => setHoveredClass(null)}
+              >
+                {link.label}
+              </a>
+            )
+          )}
+        </div>
 
       {/* Galerie des vinyles */}
       {isGalleryOpen && (
@@ -91,21 +115,19 @@ const HousePage: React.FC = () => {
             flexWrap: 'wrap',
             overflow: 'auto'
           }}
-          onClick={closeGallery}
         >
-          {vinyls.map((image, index) => (
-            <a href={image} target='_blank' key={index} style={{ margin: '10px' }}>
-              <img
-                src={image}
-                alt={`Vinyl ${index + 1}`}
-                style={{
-                  maxWidth: '500px',
-                  maxHeight: '500px',
-                  cursor: 'pointer'
-                }}
-              />
-            </a>
-          ))}
+          <div className="songs">
+            {vinyls.map((image, index) => (
+              <a href={image} className='song' target='_blank' key={index}>
+                <img
+                  src={image}
+                  alt={`Vinyl ${index + 1}`}
+                
+                />
+              </a>
+            ))}
+          </div>
+          
           <button
             onClick={closeGallery}
             style={{

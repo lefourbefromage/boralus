@@ -16,14 +16,7 @@
   }
 
   
-  a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-  a:hover {
-    color: #535bf2;
-  }
+
   
   body {
     margin: 0;
@@ -38,8 +31,7 @@
     line-height: 1.1;
   }
  
-  .button,
-  button {
+  .button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
@@ -49,26 +41,6 @@
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: #646cff;
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-  
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: #213547;
-      background-color: #ffffff;
-    }
-    a:hover {
-      color: #747bff;
-    }
-    button {
-      background-color: #f9f9f9;
-    }
   }
 
 
@@ -111,4 +83,104 @@
         text-align: center;
         color:white;
     }
+}
+
+.house {
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/house.webp') no-repeat center;
+  background-size:contain;
+  position: relative;
+
+  &:before {
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    content:'';
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    background-image: var(--background);
+    background-position:center;
+    background-size:contain;
+  }
+
+  &--coffre {
+    --background: url('../assets/coffre.webp');
+  }
+
+  &--songs {
+    --background: url('../assets/song.webp');
+  }
+
+
+  &--book {
+    --background: url('../assets/book.webp');
+  }
+
+  &--bag {
+    --background: url('../assets/bag.webp');
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  &__link {
+    position: absolute;
+    font-size: 0;
+    background: transparent;
+    outline: none;
+
+    &--coffre {
+      right: 18%;
+      bottom: 23%;
+      width: 13%;
+      height: 19%;
+    }
+
+    &--songs {
+      top: 28%;
+      left: 44%;
+      width: 8%;
+      height: 9%;
+    }
+
+    &--book {
+      top: 27%;
+      left: 30%;
+      width: 5%;
+      height: 10%;
+    }
+
+    &--bag {
+      bottom: 18%;
+      left: 23%;
+      width: 8%;
+      height: 14%;
+    }
+  }
+}
+
+.songs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 70%;
+}
+
+.song {
+  cursor: zoom-in;
+  width: 30%;
+  aspect-ratio: 1;
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
