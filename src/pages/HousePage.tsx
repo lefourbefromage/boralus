@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const HousePage: React.FC = () => {
   const [hoveredClass, setHoveredClass] = useState<string | null>(null);
@@ -24,7 +23,6 @@ const HousePage: React.FC = () => {
       }
     };
 
-  const navigate = useNavigate();
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   const vinyls = [
@@ -57,8 +55,7 @@ const HousePage: React.FC = () => {
         </div>
 
 
-        <div >
-          
+        
           {links.map((link, index) =>
             link.isButton ? (
               <button
@@ -83,7 +80,7 @@ const HousePage: React.FC = () => {
               </a>
             )
           )}
-        </div>
+       
 
       {/* Galerie des vinyles */}
       {isGalleryOpen && (
@@ -108,7 +105,6 @@ const HousePage: React.FC = () => {
                 <img
                   src={image}
                   alt={`Vinyl ${index + 1}`}
-                
                 />
               </a>
             ))}
