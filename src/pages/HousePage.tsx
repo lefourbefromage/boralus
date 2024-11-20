@@ -42,10 +42,6 @@ const HousePage: React.FC = () => {
     setIsGalleryOpen(false);
   };
 
-  const goToChest = () => {
-    navigate('/chest');
-  };
-
   const links = [
     { className: 'house__link--songs', label: 'Pile de vinyles', onClick: openGallery , href: '#', isButton: true },
     { className: 'house__link--book', label: 'Livre sur la table', href: './assets/books.pdf', isButton: false },
