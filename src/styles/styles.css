@@ -367,3 +367,46 @@ h1 {
   display: block;
   width: 100%;
 }
+.gallery {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  z-index: 2;
+}
+.gallery__cta {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 2;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: black;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  border-radius: 0px;
+  background-image: url(../assets/button-secondary-background.png);
+}
+.gallery__cta:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 20px solid;
+  border-image: url(../assets/button-secondary-border.png);
+  border-image-slice: 20 20 fill;
+  pointer-events: none;
+  z-index: 1;
+}

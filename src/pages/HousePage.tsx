@@ -85,19 +85,7 @@ const HousePage: React.FC = () => {
       {/* Galerie des vinyles */}
       {isGalleryOpen && (
         <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            overflow: 'auto'
-          }}
+          className='gallery'
         >
           <div className="songs">
             {vinyls.map((image, index) => (
@@ -111,17 +99,8 @@ const HousePage: React.FC = () => {
           </div>
           
           <button
+          className='gallery__cta'
             onClick={closeGallery}
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '20px',
-              border: 'none',
-              padding: '10px 15px',
-              cursor: 'pointer',
-              fontSize: '16px',
-              borderRadius: '5px',
-            }}
           >
             Fermer
           </button>
