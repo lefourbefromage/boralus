@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ChestPage: React.FC = () => {
   const navigate = useNavigate();
   const alphabet = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)); // Alphabet A-Z
+  const [showMessage, setShowMessage] = useState(false); // Contrôle de l'affichage du message
+  const audioRef = useRef<HTMLAudioElement | null>(null); // Référence pour l'élément audio
 
   // Initialise les valeurs avec des lettres aléatoires
   const getRandomLetter = () => alphabet[Math.floor(Math.random() * alphabet.length)];
@@ -11,21 +13,24 @@ const ChestPage: React.FC = () => {
     Array(4).fill('').map(() => getRandomLetter())
   );
 
-  // Vérifie si l'accès au coffre a déjà été validé
-  useEffect(() => {
-    const isCodeValid = localStorage.getItem('chestUnlocked');
-    if (isCodeValid === 'true') {
-      navigate('/chest-open'); // Redirection automatique
-    }
-  }, [navigate]);
-
   // Fonction pour valider le mot de passe
   const validatePassword = (values: string[]) => {
     const enteredCode = values.join('');
 
     if (enteredCode === 'LARD') {
+      setShowMessage(true); // Affiche le message
       localStorage.setItem('chestUnlocked', 'true'); // Stocke la validation
-      navigate('/chest-open'); // Redirige vers la page ouverte
+      localStorage.setItem('toggleChestVisibility', 'true');
+
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
+
+      // Redirige après un délai
+      setTimeout(() => {
+        navigate('/house'); // Redirige vers la page ouverte
+      }, 2000); // 2000 ms = 2 secondes
+      
     }
   };
 
@@ -45,40 +50,50 @@ const ChestPage: React.FC = () => {
 
   return (
     <div className="chest-page">
-      <a href="/house" type='button' className="house__cta "  >
-        Fermer le coffre
-      </a>
+        <a href="/house" type='button' className="house__cta">
+            Fermer le coffre
+        </a>
+      {showMessage ? (
+        <div className="success-message">
+          <p>Félicitations, le coffre est déverrouillé ! Redirection en cours...</p>
+          <audio ref={audioRef} src="/assets/open.mp3" autoPlay loop />
+        </div>
+      ) : (
+  
+        <div className="cryptex">
+          <img className='chest-page__clue' src="./assets/sticker.webp" alt="" />
 
-      <div className="cryptex">
-        <img className='chest-page__clue' src="./assets/sticker.webp" alt="" />
+          {inputValues.map((value, index) => {
+              const selectedIndex = alphabet.indexOf(value) !== -1 ? alphabet.indexOf(value) : 0;
 
-        {inputValues.map((value, index) => {
-          const selectedIndex = alphabet.indexOf(value) !== -1 ? alphabet.indexOf(value) : 0;
+              return (
+                <div className="cryptex__column" key={index}>
+                  <div className="cryptex__letter cryptex__letter--above">
+                    {alphabet[(selectedIndex - 1 + 26) % 26]}
+                  </div>
+                  <select
+                    className="cryptex__input"
+                    value={value}
+                    onChange={(e) => handleInputChange(e.target.value, index)}
+                  >
+                    <option value="">-</option> {/* Option vide pour initialisation */}
+                    {alphabet.map((letter, i) => (
+                      <option key={i} value={letter}>
+                        {letter}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="cryptex__letter cryptex__letter--below">
+                    {alphabet[(selectedIndex + 1) % 26]}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+      )}
+      
 
-          return (
-            <div className="cryptex__column" key={index}>  
-              <div className="cryptex__letter cryptex__letter--above">
-                {alphabet[(selectedIndex - 1 + 26) % 26]}
-              </div>
-              <select
-                className="cryptex__input"
-                value={value}
-                onChange={(e) => handleInputChange(e.target.value, index)}
-              >
-                <option value="">-</option> {/* Option vide pour initialisation */}
-                {alphabet.map((letter, i) => (
-                  <option key={i} value={letter}>
-                    {letter}
-                  </option>
-                ))}
-              </select>
-              <div className="cryptex__letter cryptex__letter--below">
-                {alphabet[(selectedIndex + 1) % 26]}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      
     </div>
   );
 };

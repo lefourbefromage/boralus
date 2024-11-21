@@ -501,7 +501,7 @@ h1 {
 .bag__item {
   position: absolute;
   width: 20%;
-  height: 20%;
+  aspect-ratio: 1;
   cursor: pointer;
 }
 .bag__item:hover .bag__popup {
@@ -529,6 +529,14 @@ h1 {
 }
 .bag__item--status {
   top: 73%;
+  left: 52%;
+}
+.bag__item--book {
+  top: 49%;
+  left: 8%;
+}
+.bag__item--code01 {
+  top: 49%;
   left: 52%;
 }
 .bag__popup {
