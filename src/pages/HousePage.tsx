@@ -109,7 +109,7 @@ const HousePage: React.FC = () => {
             key={index}
             className={`house__link ${link.className}`}
             href={link.href}
-            target={link.href.startsWith('./') ? '_blank' : '_self'}
+            target={link.href && link.href.startsWith('./') ? '_blank' : '_self'} // Vérification de link.href
             onMouseEnter={() => setHoveredClass(link.className)}
             onMouseLeave={() => setHoveredClass(null)}
           >
