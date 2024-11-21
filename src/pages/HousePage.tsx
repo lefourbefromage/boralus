@@ -113,16 +113,15 @@ const HousePage: React.FC = () => {
               <div className="item__title item__title--uncommon">Carte de fidélité</div>
               <div className="item__level">Niveau d'objet 1</div>
               <div className="item__bind">Lié quand ramassé</div>
-              <div className="item__desc">"Une carte tamponné à chaque achat dans l'auberge du Bélier Roti. Elle est presque pleine" </div>
+              <div className="item__desc">"Une carte tamponnée à chaque achat dans l'auberge du Bélier Rôti. Elle est presque pleine." </div>
             </div>
           </div>
 
           <div className="bag__item bag__item--stone">
             <div className="item bag__popup">
-              <div className="item__title item__title--legendary">Superbe cailloux</div>
+              <div className="item__title item__title--artefact">Caillou porte-bonheur</div>
               <div className="item__level">Niveau d'objet 1</div>
-              <div className="item__bind">Lié quand ramassé</div>
-              <div className="item__desc">"Une pierre tout à fait banal avec un message gravé: En souvenir de notre ascension à Haut Roc. Pauleth" </div>
+              <div className="item__desc">"Pauleth prétend que ceci vous portera chance." </div>
             </div>
           </div>
 
@@ -131,7 +130,7 @@ const HousePage: React.FC = () => {
               <div className="item__title">Pierre de foyer</div>
               <div className="item__level">Niveau d'objet 1</div>
               <div className="item__bind">Lié quand ramassé</div>
-              <div className="item__use">"Utilise: Vous renvoie au Bélier Roti de Valdraken. Parlez à l'aubergiste d'une autre ville pour changer de foyer" </div>
+              <div className="item__use">"Utiliser: Vous renvoie au Bélier Rôti de Valdrakken. Parlez à l'aubergiste d'une autre ville pour changer de foyer." </div>
             </div>
           </div>
 
@@ -139,7 +138,7 @@ const HousePage: React.FC = () => {
             <div className="item bag__popup">
               <div className="item__title item__title--junk">Tas de factures</div>
               <div className="item__level">Niveau d'objet 1</div>
-              <div className="item__desc">"Des reçus de payments au manoir de Ravenholdt. Une chambre "Malfurion et Tyrande", Mousseux de Gentepression x2, Toilettage à l'huile de Murloc x2"</div>
+              <div className="item__desc">"Des reçus de paiements au manoir de Ravenholdt. Une chambre "Malfurion et Tyrande", Mousseux de Gentepression x2, Toilettage à l'huile de Murloc x2"</div>
             </div>
           </div>
 
@@ -147,7 +146,8 @@ const HousePage: React.FC = () => {
             <div className="item bag__popup">
               <div className="item__title item__title--rare">Statuette en bois</div>
               <div className="item__level">Niveau d'objet 1</div>
-              <div className="item__desc">"Une statuette en forme d'aigle gravé dans un bois de cerf ou est-ce du bois de Tauren ?"</div>
+              <div className="item__bind">Lié quand ramassé</div>
+              <div className="item__desc">"Une statuette en forme d'aigle, "MADE IN HR" est gravé sous la base."</div>
             </div>
           </div>
 
@@ -157,7 +157,7 @@ const HousePage: React.FC = () => {
               <div className="item__level">Niveau d'objet 1</div>
               <div className="item__bind">Lié quand ramassé</div>
               <div className="item__use">Utilise: Vous déroulez la photo pour l'afficher en grand.</div>
-              <div className="item__desc">"Une photo semble enroulé dans ce tube de metal"</div>
+              <div className="item__desc">"Une photo semble enroulée dans ce tube de metal"</div>
             </div>
           </a>
 

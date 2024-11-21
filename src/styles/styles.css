@@ -571,6 +571,9 @@ h1 {
 .item__title--rare {
   color: #0070dd;
 }
+.item__title--artefact {
+  color: #e6cc80;
+}
 .item__use {
   color: #1eff00;
 }
