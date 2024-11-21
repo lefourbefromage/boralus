@@ -55,8 +55,8 @@ const ChestPage: React.FC = () => {
         </a>
       {showMessage ? (
         <div className="success-message">
-          <p>Félicitations, le coffre est déverrouillé ! Redirection en cours...</p>
-          <audio ref={audioRef} src="/assets/open.mp3" autoPlay loop />
+          <p>Le coffre est déverrouillé ! Redirection en cours...</p>
+          <audio ref={audioRef} src="/assets/open.mp3"/>
         </div>
       ) : (
   
