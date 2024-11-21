@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import HousePage from './pages/HousePage';
 import ChestPage from './pages/ChestPage';
-import ChestOpenPage from './pages/ChestOpen';
+import BookPage from './pages/BookPage';
 
 const App: React.FC = () => {
   const clearLocalStorage = () => {
@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/house" element={<HousePage />} />
         <Route path="/chest" element={<ChestPage />} />
-        <Route path="/chest-open" element={<ChestOpenPage />} />
+        <Route path="/registre" element={<BookPage />} />
       </Routes>
 
       <a href="/house" className="clear-button" onClick={clearLocalStorage} style={{background: 'white', color: 'black', position: 'fixed', right:'10px', top:'10px', padding: '10px'}}>
