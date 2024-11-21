@@ -145,6 +145,18 @@ multistep-form,
 sort-button {
   display: block;
 }
+@font-face {
+  font-family: 'Friz Quadrata Regular OS';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Friz Quadrata Regular OS'), url('../assets/fonts/friz-quadrata-regular-os-5870333951e7c.woff') format('woff');
+}
+@font-face {
+  font-family: 'Friz Quadrata Bold Italic OS';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Friz Quadrata Bold Italic OS'), url('../assets/fonts/friz-quadrata-bold-italic-os-5870341205e0f.woff') format('woff');
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -233,6 +245,33 @@ h1 {
   pointer-events: none;
   z-index: 1;
 }
+.chest-page {
+  border-radius: 1rem;
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: 100%;
+  background-color: #080c12;
+  background-size: contain;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chest-page:after {
+  content: "";
+  position: absolute;
+  top: -4%;
+  left: -2.5%;
+  bottom: 0;
+  right: 0;
+  background: url(/src/assets/Video_Border.png) no-repeat center;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 1;
+  width: 105%;
+  height: 108%;
+  z-index: 2;
+}
 .house {
   border-radius: 1rem;
   aspect-ratio: 16/9;
@@ -255,6 +294,7 @@ h1 {
   z-index: 1;
   width: 105%;
   height: 108%;
+  z-index: 2;
 }
 .house__audio {
   position: absolute;
@@ -269,6 +309,9 @@ h1 {
   font-weight: bold;
   border-radius: 0px;
   background-image: url(../assets/button-secondary-background.png);
+}
+.house__audio svg {
+  display: block;
 }
 .house__audio:after {
   content: "";
@@ -349,6 +392,40 @@ h1 {
   width: 8%;
   height: 14%;
 }
+.house__cta {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 2;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: black;
+  transition: all ease 250ms;
+  color: #e2d29f;
+  font-weight: bold;
+  border-radius: 0px;
+  background-image: url(../assets/button-primary-background.png);
+}
+.house__cta svg {
+  display: block;
+}
+.house__cta:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 20px solid;
+  border-image: url(../assets/button-primary-border.png);
+  border-image-slice: 20 20 fill;
+  pointer-events: none;
+  z-index: 1;
+}
 .songs {
   display: flex;
   flex-wrap: wrap;
@@ -409,4 +486,303 @@ h1 {
   border-image-slice: 20 20 fill;
   pointer-events: none;
   z-index: 1;
+}
+.bag {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 30%;
+  max-width: 250px;
+}
+.bag > img {
+  display: block;
+  width: 100%;
+}
+.bag__item {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  cursor: pointer;
+}
+.bag__item:hover .bag__popup {
+  display: block;
+}
+.bag__item--voucher {
+  top: 73%;
+  left: 8%;
+}
+.bag__item--stone {
+  top: 28%;
+  left: 30%;
+}
+.bag__item--hearthstone {
+  top: 28%;
+  left: 52%;
+}
+.bag__item--paper {
+  top: 51%;
+  left: 30%;
+}
+.bag__item--photo {
+  top: 51%;
+  left: 75%;
+}
+.bag__item--status {
+  top: 73%;
+  left: 52%;
+}
+.bag__popup {
+  position: absolute;
+  right: calc(100% + 5px);
+  bottom: 0;
+  z-index: 2;
+  display: none;
+  font-family: serif;
+  text-decoration: none;
+}
+.bag__close {
+  position: absolute;
+  width: 11%;
+  height: 11%;
+  right: 3%;
+  top: 4%;
+  font-size: 0;
+}
+.item {
+  border: 1px solid #a3a4a9;
+  border-radius: 3px;
+  width: 350px;
+  background: rgba(6, 11, 31, 0.75);
+  padding: 10px;
+  font-family: Friz Quadrata Regular OS, sans-serif;
+}
+.item__title {
+  font-size: 18px;
+}
+.item__title--junk {
+  color: #9d9d9d;
+}
+.item__title--uncommon {
+  color: #1eff00;
+}
+.item__title--legendary {
+  color: #ff8000;
+}
+.item__title--rare {
+  color: #0070dd;
+}
+.item__use {
+  color: #1eff00;
+}
+.item__level,
+.item__desc {
+  color: #ffd100 !important;
+}
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+.carousel__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
+}
+.carousel__stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel__stack--grid {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.carousel__stack--grid .carousel__image {
+  width: 25%;
+  position: relative !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+.carousel__stack--grid + .carousel__controls > .carousel__nav {
+  display: none;
+}
+.carousel__image {
+  position: absolute;
+  top: 0;
+  cursor: zoom-in;
+  transform: scale(0.8);
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  max-height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  aspect-ratio: 1;
+  display: block;
+}
+.carousel__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.carousel__image.active {
+  transform: scale(1);
+  opacity: 1;
+}
+.carousel__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 2;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: black;
+  color: #e2d29f;
+  font-weight: bold;
+  border-radius: 0px;
+  background-image: url(../assets/button-primary-background.png);
+}
+.carousel__close:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 20px solid;
+  border-image: url(../assets/button-primary-border.png);
+  border-image-slice: 20 20 fill;
+  pointer-events: none;
+  z-index: 1;
+}
+.carousel__cta {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 2;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: black;
+  transition: all ease 250ms;
+  color: #e2d29f;
+  font-weight: bold;
+  border-radius: 0px;
+  background-image: url(../assets/button-primary-background.png);
+}
+.carousel__cta svg {
+  display: block;
+}
+.carousel__cta:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 20px solid;
+  border-image: url(../assets/button-primary-border.png);
+  border-image-slice: 20 20 fill;
+  pointer-events: none;
+  z-index: 1;
+}
+.carousel__cta[disabled] {
+  cursor: initial;
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.2;
+  background-image: url(../assets/button-secondary-background.png);
+}
+.carousel__cta[disabled]:after {
+  border-image: url(../assets/button-secondary-border.png);
+  border-image-slice: 20 20 fill;
+}
+.carousel__controls {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+}
+.carousel__button:hover {
+  background-color: #555;
+}
+.coffre-page {
+  text-align: center;
+  margin-top: 50px;
+}
+.cryptex {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.cryptex__input {
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  color: black !important;
+  appearance: none;
+  text-align: center;
+  width: 50px;
+  height: 80px;
+}
+.cryptex__input option {
+  text-align: center;
+}
+.cryptex__input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.cryptex__letter {
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  color: black !important;
+  text-align: center;
+  width: 50px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.cryptex__letter--above {
+  transform: rotateX(-60deg);
+  bottom: -15px;
+  background: linear-gradient(0deg, #ffffff30, transparent);
+}
+.cryptex__letter--below {
+  transform: rotateX(60deg);
+  bottom: 15px;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff30, transparent);
+}
+.chest-page__clue {
+  display: block;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  right: -80%;
+  pointer-events: none;
 }
