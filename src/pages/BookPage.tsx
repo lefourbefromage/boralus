@@ -10,15 +10,23 @@ const BookPage: React.FC = () => {
   // Fonction pour valider et rediriger
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     const redirections: { [key: string]: string } = {
-      'Milhouse,Dornogal': '/milhouse',
-      'Gorgonzormu,Valdrakken': '/fromage',
-      'Izkrk\'tkrzn,Cité des fils': '/eggs',
-      'Malia Pierce,Rêve d’émeraude': '/drood',
+      'milhouse,dornogal': '/milhouse',
+      'gorgonzormu,valdrakken': '/fromage',
+      'izkrk\'tkrzn,cité des fils': '/eggs',
+      'malia pierce,rêve d’émeraude': '/drood',
     };
-
-    const key = `${contactName},${contactLocation}`;
+  
+    // Normaliser les entrées pour ignorer les majuscules et accents
+    const normalizeInput = (input: string) =>
+      input
+        .toLowerCase() // Convertit en minuscules
+        .normalize('NFD') // Décompose les caractères spéciaux
+        .replace(/[\u0300-\u036f]/g, ''); // Supprime les accents
+  
+    const key = `${normalizeInput(contactName)},${normalizeInput(contactLocation)}`;
+  
     if (redirections[key]) {
       navigate(redirections[key]);
     } else {

@@ -9,7 +9,7 @@ import MagePage from './pages/MagePage';
 
 const App: React.FC = () => {
   const clearLocalStorage = () => {
-    localStorage.removeItem('chestUnlocked'); // Supprime la clé spécifique
+    localStorage.clear(); // Supprime la clé spécifique
   };
 
   return (

@@ -928,14 +928,20 @@ h1 {
 .dialog-page__message--true {
   background: #d0f9d0;
 }
+.dialog-page__message--question {
+  background: #acd6f4;
+}
 .dialog-page__message--self {
   align-self: flex-end;
   max-width: 80%;
-  background: #90d8fe;
+  background: #c9c9c9;
 }
 .dialog-page__message--error {
   background: red;
   color: white;
+}
+.dialog-page__message--error + form .dialog-page__wrapper {
+  animation-delay: 1s;
 }
 .answered-question {
   display: contents;
@@ -967,7 +973,10 @@ form .dialog-page__wrapper:not([data-question="1"]) .dialog-page__message:nth-ch
   animation-delay: 6s;
 }
 form .dialog-page__wrapper[data-question="1"] .dialog-page__message {
-  animation-delay: 1s;
+  animation-delay: 9s;
+}
+form .dialog-page__wrapper--error[data-question="1"] .dialog-page__message {
+  animation-delay: 250ms;
 }
 .dialog-page__wrapper {
   display: contents;
@@ -983,7 +992,7 @@ form .dialog-page__wrapper[data-question="1"] .dialog-page__message {
   animation-duration: 2s;
   animation-direction: normal;
   animation-fill-mode: both;
-  animation-delay: 1s;
+  animation-delay: 10s;
 }
 .dialog-page__footer input[type="text"] {
   padding: 10px;

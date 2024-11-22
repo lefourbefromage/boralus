@@ -142,10 +142,10 @@ const HousePage: React.FC = () => {
 
           <a href="./assets/01.webp" target="_blank" className="bag__item bag__item--chest bag__item--code01">
             <div className="item bag__popup">
-              <div className="item__title item__title--rare">Bout de papier déchiré</div>
+              <div className="item__title item__title--rare">Bout de papier déchiré - 01</div>
               <div className="item__level">Niveau d'objet 1</div>
               <div className="item__bind">Lié quand ramassé</div>
-              <div className="item__desc">"Un papier déchiré avec des symboles dessiné." </div>
+              <div className="item__desc">"Le coin d'un papier déchiré avec des symboles dessiné." </div>
               <div className="item__use">{`<Cliquer pour voir>`}</div>
             </div>
           </a>
@@ -153,10 +153,10 @@ const HousePage: React.FC = () => {
           {localStorage.getItem('clue02') === 'true' && (
             <a href="./assets/02.webp" target="_blank" className="bag__item bag__item--chest bag__item--code02">
               <div className="item bag__popup">
-                <div className="item__title item__title--rare">Bout de papier déchiré</div>
+                <div className="item__title item__title--rare">Bout de papier déchiré - 02</div>
                 <div className="item__level">Niveau d'objet 1</div>
                 <div className="item__bind">Lié quand ramassé</div>
-                <div className="item__desc">"Un papier déchiré avec des symboles dessiné." </div>
+                <div className="item__desc">"Le centre d'un papier déchiré avec des symboles dessiné." </div>
                 <div className="item__use">{`<Cliquer pour voir>`}</div>
               </div>
             </a>
@@ -165,10 +165,10 @@ const HousePage: React.FC = () => {
           {localStorage.getItem('clue03') === 'true' && (
             <a href="./assets/03.webp" target="_blank" className="bag__item bag__item--chest bag__item--code03">
               <div className="item bag__popup">
-                <div className="item__title item__title--rare">Bout de papier déchiré</div>
+                <div className="item__title item__title--rare">Bout de papier déchiré - 03</div>
                 <div className="item__level">Niveau d'objet 1</div>
                 <div className="item__bind">Lié quand ramassé</div>
-                <div className="item__desc">"Un papier déchiré avec des symboles dessiné." </div>
+                <div className="item__desc">"Un autre morceau du papier déchiré avec des symboles dessiné." </div>
                 <div className="item__use">{`<Cliquer pour voir>`}</div>
               </div>
             </a>
@@ -178,10 +178,10 @@ const HousePage: React.FC = () => {
           {localStorage.getItem('clue04') === 'true' && (
             <a href="./assets/04.webp" target="_blank" className="bag__item bag__item--chest bag__item--code04">
               <div className="item bag__popup">
-                <div className="item__title item__title--rare">Bout de papier déchiré</div>
+                <div className="item__title item__title--rare">Bout de papier déchiré - 04</div>
                 <div className="item__level">Niveau d'objet 1</div>
                 <div className="item__bind">Lié quand ramassé</div>
-                <div className="item__desc">"Un papier déchiré avec des symboles dessiné." </div>
+                <div className="item__desc">"Un coin du morceau du papier déchiré avec des symboles dessiné." </div>
                 <div className="item__use">{`<Cliquer pour voir>`}</div>
               </div>
             </a>

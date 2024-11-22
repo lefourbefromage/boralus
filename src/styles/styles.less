@@ -921,11 +921,6 @@ h1 {
       z-index: 1;
     }
   }
-
-
-
-
-
 }
 
 
@@ -968,15 +963,25 @@ h1 {
     background: rgb(208, 249, 208);
   }
 
+  &--question {
+    background: rgb(172, 214, 244);
+  }
+
   &--self {
     align-self: flex-end;
     max-width: 80%;
-    background: rgb(144, 216, 254);
+    background: rgb(201, 201, 201);
   }
 
   &--error {
     background:red;
     color:white;
+
+    & + form {
+      .dialog-page__wrapper {
+        animation-delay: 1s;
+      }
+    }
   }
 }
 
@@ -1018,13 +1023,18 @@ form {
     }
 
     &[data-question="1"]{
-
       .dialog-page__message {
-        animation-delay: 1s;
-
+        animation-delay: 9s;
       }
     }
 
+    &--error {
+      &[data-question="1"]{
+        .dialog-page__message {
+          animation-delay: 250ms;
+        }
+      }
+    }
     
   }
  
@@ -1046,7 +1056,7 @@ form {
   animation-duration: 2s;
   animation-direction: normal;
   animation-fill-mode: both;
-  animation-delay: 1s;
+  animation-delay: 10s;
   
   input[type="text"] {
     padding: 10px;
@@ -1069,7 +1079,6 @@ form {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all ease 250ms;
-
 
     svg {
       display: block;
