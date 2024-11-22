@@ -24,9 +24,9 @@ const MagePage: React.FC = () => {
   const correctAnswers: Record<number, string | string[]> = {
     1: 'jerimus',
     2: ['arcatraz', "l'arcatraz", "dans l'arcatraz"],
-    3: 'corborus',
+    3: 'Coroborus',
     4: 'millificent',
-    5: 'b',
+    5: 'B',
   };
 
   const questions: Record<number, string> = {

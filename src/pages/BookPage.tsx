@@ -40,7 +40,7 @@ const BookPage: React.FC = () => {
           <div className="form-group">
             <label htmlFor="contactName">
               Nom du contact
-              <small>Nom complet avec ou sans accents</small>
+              <small>(avec ou sans accents)</small>
             </label>
             <input
               type="text"
