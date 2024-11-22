@@ -23,8 +23,6 @@ const HousePage: React.FC = () => {
     }
   }, []);
 
-
-
   const togglePlayPause = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -46,8 +44,6 @@ const HousePage: React.FC = () => {
   };
 
   const toggleBagVisibility = () => {
-
-
     setIsBagVisible((prevState) => !prevState); // Basculer la visibilité du bag
     setIsChestVisible(false)
   };
@@ -144,7 +140,7 @@ const HousePage: React.FC = () => {
             </div>
           </a>
 
-          <a href="./assets/postal.jpg" target="_blank" className="bag__item bag__item--chest bag__item--code01">
+          <a href="./assets/01.webp" target="_blank" className="bag__item bag__item--chest bag__item--code01">
             <div className="item bag__popup">
               <div className="item__title item__title--rare">Bout de papier déchiré</div>
               <div className="item__level">Niveau d'objet 1</div>
@@ -153,6 +149,43 @@ const HousePage: React.FC = () => {
               <div className="item__use">{`<Cliquer pour voir>`}</div>
             </div>
           </a>
+
+          {localStorage.getItem('clue02') === 'true' && (
+            <a href="./assets/02.webp" target="_blank" className="bag__item bag__item--chest bag__item--code02">
+              <div className="item bag__popup">
+                <div className="item__title item__title--rare">Bout de papier déchiré</div>
+                <div className="item__level">Niveau d'objet 1</div>
+                <div className="item__bind">Lié quand ramassé</div>
+                <div className="item__desc">"Un papier déchiré avec des symboles dessiné." </div>
+                <div className="item__use">{`<Cliquer pour voir>`}</div>
+              </div>
+            </a>
+          )}
+
+          {localStorage.getItem('clue03') === 'true' && (
+            <a href="./assets/03.webp" target="_blank" className="bag__item bag__item--chest bag__item--code03">
+              <div className="item bag__popup">
+                <div className="item__title item__title--rare">Bout de papier déchiré</div>
+                <div className="item__level">Niveau d'objet 1</div>
+                <div className="item__bind">Lié quand ramassé</div>
+                <div className="item__desc">"Un papier déchiré avec des symboles dessiné." </div>
+                <div className="item__use">{`<Cliquer pour voir>`}</div>
+              </div>
+            </a>
+          )}
+
+
+          {localStorage.getItem('clue04') === 'true' && (
+            <a href="./assets/04.webp" target="_blank" className="bag__item bag__item--chest bag__item--code04">
+              <div className="item bag__popup">
+                <div className="item__title item__title--rare">Bout de papier déchiré</div>
+                <div className="item__level">Niveau d'objet 1</div>
+                <div className="item__bind">Lié quand ramassé</div>
+                <div className="item__desc">"Un papier déchiré avec des symboles dessiné." </div>
+                <div className="item__use">{`<Cliquer pour voir>`}</div>
+              </div>
+            </a>
+          )}
 
           <img src="/assets/chest.png" alt="Bag" />
         </div>

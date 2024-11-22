@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import HousePage from './pages/HousePage';
 import ChestPage from './pages/ChestPage';
 import BookPage from './pages/BookPage';
+import MagePage from './pages/MagePage';
 
 const App: React.FC = () => {
   const clearLocalStorage = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/house" element={<HousePage />} />
         <Route path="/chest" element={<ChestPage />} />
         <Route path="/registre" element={<BookPage />} />
+        <Route path="/milhouse" element={<MagePage />} />
       </Routes>
 
       <a href="/house" className="clear-button" onClick={clearLocalStorage} style={{background: 'white', color: 'black', position: 'fixed', right:'10px', top:'10px', padding: '10px'}}>

@@ -158,7 +158,7 @@ sort-button {
   src: local('Friz Quadrata Bold Italic OS'), url('../assets/fonts/friz-quadrata-bold-italic-os-5870341205e0f.woff') format('woff');
 }
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Friz Quadrata Regular OS, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -245,6 +245,7 @@ h1 {
   pointer-events: none;
   z-index: 1;
 }
+.dialog-page,
 .chest-page {
   border-radius: 1rem;
   aspect-ratio: 16/9;
@@ -257,6 +258,7 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+.dialog-page:after,
 .chest-page:after {
   content: "";
   position: absolute;
@@ -410,6 +412,11 @@ h1 {
   border-radius: 0px;
   background-image: url(../assets/button-primary-background.png);
 }
+.house__cta--left {
+  left: 20px;
+  transform: translate(0);
+  cursor: pointer;
+}
 .house__cta svg {
   display: block;
 }
@@ -532,12 +539,31 @@ h1 {
   left: 52%;
 }
 .bag__item--book {
-  top: 49%;
+  top: 29%;
   left: 8%;
 }
 .bag__item--code01 {
-  top: 49%;
+  top: 29%;
   left: 52%;
+}
+.bag__item--code02 {
+  top: 29%;
+  left: 52%;
+  background: url(/src/assets/card-02.png) no-repeat center;
+  background-size: cover;
+}
+.bag__item--code03 {
+  top: 29%;
+  left: 74%;
+  background: url(/src/assets/card-03.png) no-repeat center;
+  background-size: cover;
+}
+.bag__item--code04 {
+  top: 29%;
+  left: 8%;
+  width: 20.5%;
+  background: url(/src/assets/card-04.png) no-repeat center;
+  background-size: cover;
 }
 .bag__popup {
   position: absolute;
@@ -796,4 +822,204 @@ h1 {
   z-index: 2;
   right: -80%;
   pointer-events: none;
+}
+.book__img {
+  display: block;
+  width: 100%;
+}
+.book__form {
+  display: grid;
+  gap: 20px;
+}
+.book h2 {
+  text-align: center;
+  font-size: 25px;
+  border: 20px solid;
+  border-image: url(../assets/button-secondary-border.png);
+  border-image-slice: 20 20 fill;
+}
+.book form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.book .form-group {
+  display: grid;
+  gap: 10px;
+}
+.book .form-group label {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+.book .form-group label small {
+  font-size: 12px;
+  color: #cb9213;
+  font-weight: normal;
+}
+.book .form-group input {
+  background: white;
+  color: black;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+}
+.book button {
+  grid-column: 1/3;
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 2;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: black;
+  transition: all ease 250ms;
+  color: #e2d29f;
+  font-weight: bold;
+  border-radius: 0px;
+  background-image: url(../assets/button-primary-background.png);
+}
+.book button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 20px solid;
+  border-image: url(../assets/button-primary-border.png);
+  border-image-slice: 20 20 fill;
+  pointer-events: none;
+  z-index: 1;
+}
+.dialog-page--mage {
+  background-image: url('../assets/milhouse.webp');
+  background-size: cover;
+  background-position: center;
+  justify-content: flex-end;
+}
+.dialog-page__content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 40px;
+  align-items: flex-start;
+  overflow: auto;
+  height: 100%;
+}
+.dialog-page__message {
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+  background: white;
+  font-size: 15px;
+  max-width: 80%;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+.dialog-page__message--true {
+  background: #d0f9d0;
+}
+.dialog-page__message--self {
+  align-self: flex-end;
+  max-width: 80%;
+  background: #90d8fe;
+}
+.dialog-page__message--error {
+  background: red;
+  color: white;
+}
+.answered-question {
+  display: contents;
+}
+.dialog-page__content {
+  padding: 21px;
+  align-items: flex-start;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: flex-start;
+}
+form .dialog-page__wrapper:not([data-question="1"]) .dialog-page__message {
+  animation-delay: 250ms;
+}
+form .dialog-page__wrapper:not([data-question="1"]) .dialog-page__message:nth-child(2) {
+  animation-delay: 2s;
+}
+form .dialog-page__wrapper:not([data-question="1"]) .dialog-page__message:nth-child(3) {
+  animation-delay: 3s;
+}
+form .dialog-page__wrapper:not([data-question="1"]) .dialog-page__message:nth-child(4) {
+  animation-delay: 4s;
+}
+form .dialog-page__wrapper:not([data-question="1"]) .dialog-page__message:nth-child(5) {
+  animation-delay: 6s;
+}
+form .dialog-page__wrapper[data-question="1"] .dialog-page__message {
+  animation-delay: 1s;
+}
+.dialog-page__wrapper {
+  display: contents;
+}
+.dialog-page__footer {
+  align-self: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-delay: 1s;
+}
+.dialog-page__footer input[type="text"] {
+  padding: 10px;
+  border: none;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 50%;
+}
+.dialog-page__footer button {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f9b514;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all ease 250ms;
+}
+.dialog-page__footer button svg {
+  display: block;
+}
+.answered-question .dialog-page__message {
+  animation: none;
+  opacity: 1;
+}
+@keyframes fadeIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
