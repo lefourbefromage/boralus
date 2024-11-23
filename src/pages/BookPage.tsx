@@ -14,8 +14,8 @@ const BookPage: React.FC = () => {
     const redirections: { [key: string]: string } = {
       'milhouse,dornogal': '/milhouse',
       'gorgonzormu,valdrakken': '/fromage',
-      'izkrk\'tkrzn,cité des fils': '/eggs',
-      'malia pierce,rêve d’émeraude': '/drood',
+      'izkrk\'tkrzn,cite des fils': '/egg',
+      'malia pierce,reve d’emeraude': '/drood',
     };
   
     // Normaliser les entrées pour ignorer les majuscules et accents

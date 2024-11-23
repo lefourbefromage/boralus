@@ -559,7 +559,7 @@ h1 {
   background-size: cover;
 }
 .bag__item--code04 {
-  top: 29%;
+  top: 51%;
   left: 8%;
   width: 20.5%;
   background: url(/src/assets/card-04.png) no-repeat center;
@@ -902,6 +902,18 @@ h1 {
   background-position: center;
   justify-content: flex-end;
 }
+.dialog-page--fromage {
+  background-image: url('../assets/gorgon.webp');
+  background-size: cover;
+  background-position: center;
+  justify-content: flex-end;
+}
+.dialog-page--egg {
+  background-image: url('../assets/iz.webp');
+  background-size: cover;
+  background-position: center;
+  justify-content: flex-end;
+}
 .dialog-page__content {
   width: 50%;
   display: flex;
@@ -924,6 +936,10 @@ h1 {
   animation-duration: 2s;
   animation-direction: normal;
   animation-fill-mode: both;
+}
+.dialog-page__message img {
+  display: block;
+  width: 100%;
 }
 .dialog-page__message--true {
   background: #d0f9d0;
@@ -1031,4 +1047,108 @@ form .dialog-page__wrapper--error[data-question="1"] .dialog-page__message {
     transform: translateY(0px);
     opacity: 1;
   }
+}
+.dialog-page__radio input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: block;
+  left: 0;
+  margin: 0;
+  z-index: -1;
+  background: white;
+  appearance: none;
+  border-radius: 5px;
+  line-height: 1;
+  z-index: 1;
+}
+.dialog-page__radio span {
+  z-index: 2;
+  position: relative;
+}
+.dialog-page__message--checkbox,
+.dialog-page__message--text,
+.dialog-page__message--radio {
+  display: flex;
+  gap: 10px;
+  background: transparent;
+  padding: 0;
+}
+.dialog-page__message--text input[type="text"] {
+  padding: 10px;
+  border: none;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 100%;
+}
+.dialog-page__radio {
+  padding: 10px 10px 13px 10px;
+  background: transparent;
+  position: relative;
+  color: black;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+.dialog-page__radio input:checked {
+  border: 3px solid #1459f9;
+}
+.dialog-page__checkbox {
+  background: transparent;
+  position: relative;
+  color: black;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+.dialog-page__checkbox img {
+  display: block;
+  width: 100%;
+  padding: 2px;
+}
+.dialog-page__checkbox input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: block;
+  left: 0;
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  border-radius: 5px;
+  line-height: 1;
+  border: 3px solid white;
+}
+.dialog-page__checkbox input:checked {
+  border: 3px solid #1459f9;
+}
+.dialog-page--fromage .dialog-page__message {
+  animation: none;
+  opacity: 1;
+}
+.dialog-page__submit {
+  align-self: flex-end;
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 10px;
+  background: #1459f9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all ease 250ms;
+}
+.dialog-page__submit svg {
+  display: block;
 }

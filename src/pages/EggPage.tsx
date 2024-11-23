@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const MagePage: React.FC = () => {
+const EggPage: React.FC = () => {
   const navigate = useNavigate();
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -22,25 +22,13 @@ const MagePage: React.FC = () => {
   }, [answeredQuestions, message]);
 
   const correctAnswers: Record<number, string | string[]> = {
-    1: 'jerimus',
-    2: ['arcatraz', "l'arcatraz", "dans l'arcatraz"],
-    3: 'coroborus',
-    4: 'millificent',
-    5: 'b',
+    1: "61,88",
+    2: ['Ombrelune',"la vallee d'ombrelune", "vallee d'ombrelune", "shadowmoon valley"],
   };
 
   const questions: Record<number, string> = {
-    1: '<p class="dialog-page__message dialog-page__message--question"><strong>Première question</strong>, quel est mon deuxième prénom ?</p>',
-    2: '<p class="dialog-page__message dialog-page__message--true">Pas mal. Maintenant on va remonter un peu le temps !</p> <p class="dialog-page__message dialog-page__message--question">J\'ai été malencontreusement enfermé durant ma carrière, où étais-ce ?</p>',
-    3: '<p class="dialog-page__message dialog-page__message--true">Bonne réponse !</p><p class="dialog-page__message dialog-page__message--question">Durant le <em>cataclysm</em>, j\'ai croisé des aventuriers mais un monstre m\'a éjecté dans le vide, qui était-ce ?</p>',
-    4: '<p class="dialog-page__message dialog-page__message--true">Bien joué...</p><p class="dialog-page__message">Vous connaissez ma femme ?</p><p class="dialog-page__message"> Elle est <strong>belle</strong> hein ?</p><p class="dialog-page__message dialog-page__message--question">Mais c\'est quoi son nom ?</p>',
-    5: `<p class="dialog-page__message dialog-page__message--true">Ouais ouais ouais !</p><div class="dialog-page__message dialog-page__message--question">Je suis à l'origine de la création du meilleur sort jamais créé. Lequel est-ce ?
-      <ul>
-        <li>A- Métamorphose en rat</li>
-        <li>B- Métamorphose en canard</li>
-        <li>C- Métamorphose en chat</li>
-        <li>D- Métamorphose en mousselaine</li>
-      </ul></div>`,
+    1: '<p class="dialog-page__message dialog-page__message--question">Donnez moi l\'emplacement de l\'oeuf <br/> (Exemple pour [12.32, 40.17] => tapez 12,40)</p>',
+    2: '<p class="dialog-page__message dialog-page__message--true">Mes espions me disent que c\'est bien ça.</p><p class="dialog-page__message dialog-page__message--question">Mais dans quel région ?</p>'
   };
 
   const normalizeInput = (input: string) =>
@@ -64,8 +52,8 @@ const MagePage: React.FC = () => {
           { question: questions[currentStep], answer },
         ]);
 
-        if (currentStep === 5) {
-          localStorage.setItem('clue02', 'true');
+        if (currentStep === 2) {
+          localStorage.setItem('clue04', 'true');
           localStorage.setItem('toggleChestVisibility', 'true');
           setIsSuccess(true); // Marque le questionnaire comme terminé avec succès
         } else {
@@ -82,18 +70,18 @@ const MagePage: React.FC = () => {
   const resetQuestionnaire = () => {
     setCurrentStep(1);
     setAnsweredQuestions([]);
-    setMessage('Vous vous êtes planté comme la grosse épée en Silithus. On recommence ?');
+    setMessage('Il y a rien la bas ?! Zou vouj fouteiz de Kej ?');
     setIsSuccess(false);
   };
 
   return (
-    <div className="dialog-page dialog-page--mage">
+    <div className="dialog-page dialog-page--egg">
       <button className="house__cta house__cta--left" onClick={() => navigate('/house')}>Retourner à Boralus</button>
 
-      {!message && !isSuccess && localStorage.getItem('clue02') === 'true' ? (
+      {!message && !isSuccess && localStorage.getItem('clue04') === 'true' ? (
         <div className="dialog-page__content" ref={contentRef}>    
             <div className="dialog-page__message" style={{ animationDelay: '0' }}>
-              Rebonjour ?
+              Oui ?
             </div>
             <div className="dialog-page__message" style={{ animationDelay: '1s' }}>
               Tu as déjà eu ce que tu voulais...
@@ -110,32 +98,25 @@ const MagePage: React.FC = () => {
           <div className="dialog-page__message" style={{ animationDelay: '0s' }}>
             Bonjour...<br/>
           </div>
-          <div className="dialog-page__message" style={{ animationDelay: '1s' }}>
-            Vous vous trouvez en face du grand...<br/>
-          </div>
 
-          <div className="dialog-page__message" style={{ animationDelay: '1.5s' }}>
-            ...
+          <div className="dialog-page__message" style={{ animationDelay: '2s' }}>
+            vous avez des oeufs ?...<br/>
           </div>
-
-          <div className="dialog-page__message" style={{ animationDelay: '2.5s' }}>
-            ...
-          </div>
-
+          
           <div className="dialog-page__message" style={{ animationDelay: '3.5s' }}>
-            ...
+            J'échange informations contre oeufs. 
           </div>
 
           <div className="dialog-page__message" style={{ animationDelay: '4.5s' }}>
-            MILHOUSE TEMPÊTE-DE-MANA !!!
+            Grosse informations ? Gros oeufs
           </div>
 
-          <div className="dialog-page__message" style={{ animationDelay: '5.5s' }}>
-            Vous me trouvez ici dans une situation des plus cocasse... Je crois que vous êtes proche de Grosciflard ?
-          </div>
+          <a href='' target="_blank" className="dialog-page__message" style={{ animationDelay: '6.5s' }}>
+            <img src='./assets/egg-location.webp'/>
+          </a>
 
-          <div className="dialog-page__message" style={{ animationDelay: '7.5s' }}>
-            J'ai sûrement un petit truc pour vous mais pour ça vous devez me prouver que vous me connaissez autant que Grosciflard !
+          <div className="dialog-page__message" style={{ animationDelay: '6.5s' }}>
+            Ça être oeuf de Chimère et moi veux oeuf de chimère dans ma collection.
           </div>
 
           {/* Messages d'erreur */}
@@ -155,7 +136,7 @@ const MagePage: React.FC = () => {
           ))}
 
           {/* Affiche la question actuelle uniquement si le questionnaire n'est pas terminé */}
-          {!isSuccess && currentStep <= 5 && (
+          {!isSuccess && currentStep <= 2 && (
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -190,17 +171,17 @@ const MagePage: React.FC = () => {
           { isSuccess && (
             <div className="dialog-page__wrapper">
               <p className="dialog-page__message dialog-page__message--true">
-                  Je vois que vous me connaissez aussi bien que Grosciflard ! je suppose que je peux vous faire confiance. Voici un papier qu'il m'a donné la dernière fois mais je n'ai aucune idée de son utilité.
+                  Oeufs bientôt a moi !!!!
               </p>
               <p className="dialog-page__message dialog-page__message--true">
-                  Je suppose que je peux vous faire confiance. Voici un papier qu'il m'a donné la dernière fois mais je n'ai aucune idée de son utilité. 
+                  Voila papier que druide m'a donné pour acheter oeuf.
               </p>
               <p className="dialog-page__message dialog-page__message--true">
                 Je met le papier dans le coffre de Grosciflard !
               </p>
 
-              <p className="dialog-page__message dialog-page__message--error" style={{animationDelay: "10s"}}>
-                Euh... Tu vas rester ici a me regarder ? Retourne à Boralus !
+              <p className="dialog-page__message" style={{animationDelay: "10s"}}>
+                Qu'est-ce qui est apparu en premier : l'œuf ou le nérubien ? Laissez moi à mes occupations...
               </p>
             </div>
           )}
@@ -211,4 +192,4 @@ const MagePage: React.FC = () => {
 };
 
 
-export default MagePage;
+export default EggPage;
