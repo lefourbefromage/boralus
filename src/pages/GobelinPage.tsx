@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const GobelinPage: React.FC = () => {
@@ -50,6 +50,5 @@ const GobelinPage: React.FC = () => {
     </div>
   )
 };
-
 
 export default GobelinPage
