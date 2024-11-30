@@ -8,6 +8,7 @@ import BookPage from './pages/BookPage';
 import MagePage from './pages/MagePage';
 import FromagePage from './pages/FromagePage';
 import EggPage from './pages/EggPage';
+import GobelinPage from './pages/GobelinPage';
 
 const App: React.FC = () => {
   const clearLocalStorage = () => {
@@ -24,9 +25,10 @@ const App: React.FC = () => {
         <Route path="/milhouse" element={<MagePage />} />
         <Route path="/fromage" element={<FromagePage />} />
         <Route path="/egg" element={<EggPage />} />
+        <Route path="/gobelin" element={<GobelinPage />} />
       </Routes>
 
-      <a href="#" className="clear-button" onClick={clearLocalStorage} style={{background: 'white', color: 'black', position: 'fixed', right:'10px', top:'10px', padding: '10px'}}>
+      <a href="#" className="clear-button" onClick={clearLocalStorage} style={{display:'none', background: 'white', color: 'black', position: 'fixed', right:'10px', top:'10px', padding: '10px'}}>
         Reset local storage
       </a>
     </Router>

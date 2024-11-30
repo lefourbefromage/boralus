@@ -925,25 +925,29 @@ h1 {
 
 
 .dialog-page {
+  justify-content: flex-end;
   &--mage {
     background-image: url('../assets/milhouse.webp');
     background-size: cover;
       background-position: center;
-    justify-content: flex-end;
   }
 
   &--fromage {
     background-image: url('../assets/gorgon.webp');
     background-size: cover;
-      background-position: center;
-    justify-content: flex-end;
+    background-position: center;
   }
 
   &--egg {
     background-image: url('../assets/iz.webp');
     background-size: cover;
-      background-position: center;
-    justify-content: flex-end;
+    background-position: center;
+  }
+
+  &--gobelin {
+    background-image: url('../assets/korni.webp');
+    background-size: cover;
+    background-position: center;
   }
 
   &__content {
@@ -957,7 +961,6 @@ h1 {
     height: 100%;
   }
 }
-
 
 .dialog-page__message {
   padding: 10px;
@@ -983,6 +986,11 @@ h1 {
 
   &--question {
     background: rgb(172, 214, 244);
+  }
+
+  &--audio {
+    padding: 0;
+    background: transparent;
   }
 
   &--self {

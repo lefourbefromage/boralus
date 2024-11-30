@@ -15,7 +15,7 @@ const BookPage: React.FC = () => {
       'milhouse,dornogal': '/milhouse',
       'gorgonzormu,valdrakken': '/fromage',
       'izkrk\'tkrzn,cite des fils': '/egg',
-      'malia pierce,reve d’emeraude': '/drood',
+      'kornipiochon,gadgetzan': '/gobelin',
     };
   
     // Normaliser les entrées pour ignorer les majuscules et accents
@@ -40,7 +40,6 @@ const BookPage: React.FC = () => {
         Fermer le livre
       </a>
 
-      <img className="book__img" src="./assets/book.webp" alt="Book"></img>
 
       <div className="book__form">
         <h2>Aller à la rencontre de</h2>
@@ -80,6 +79,9 @@ const BookPage: React.FC = () => {
 
         {error && <p className="error-message">{error}</p>}
       </div>
+
+      <img className="book__img" src="./assets/book.webp" alt="Book"></img>
+
     </div>
   );
 };

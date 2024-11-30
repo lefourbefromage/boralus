@@ -896,23 +896,28 @@ h1 {
   pointer-events: none;
   z-index: 1;
 }
+.dialog-page {
+  justify-content: flex-end;
+}
 .dialog-page--mage {
   background-image: url('../assets/milhouse.webp');
   background-size: cover;
   background-position: center;
-  justify-content: flex-end;
 }
 .dialog-page--fromage {
   background-image: url('../assets/gorgon.webp');
   background-size: cover;
   background-position: center;
-  justify-content: flex-end;
 }
 .dialog-page--egg {
   background-image: url('../assets/iz.webp');
   background-size: cover;
   background-position: center;
-  justify-content: flex-end;
+}
+.dialog-page--gobelin {
+  background-image: url('../assets/korni.webp');
+  background-size: cover;
+  background-position: center;
 }
 .dialog-page__content {
   width: 50%;
@@ -946,6 +951,10 @@ h1 {
 }
 .dialog-page__message--question {
   background: #acd6f4;
+}
+.dialog-page__message--audio {
+  padding: 0;
+  background: transparent;
 }
 .dialog-page__message--self {
   align-self: flex-end;
