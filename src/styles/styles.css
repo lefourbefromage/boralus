@@ -211,6 +211,16 @@ h1 {
   display: grid;
   gap: 20px;
 }
+.main__form--home {
+  max-width: 400px;
+}
+.main__form--home label {
+  text-align: center;
+  font-size: 25px;
+  border: 20px solid;
+  border-image: url(../assets/button-secondary-border.png);
+  border-image-slice: 20 20 fill;
+}
 .main__form input {
   background: white;
   border: none;
@@ -361,6 +371,9 @@ h1 {
 .house--bag {
   --background: url('../assets/bag.webp');
 }
+.house--status {
+  --background: url('../assets/status.webp');
+}
 .house:hover:before {
   opacity: 1;
 }
@@ -393,6 +406,27 @@ h1 {
   left: 23%;
   width: 8%;
   height: 14%;
+}
+.house__link--status {
+  bottom: 36%;
+  right: 33%;
+  width: 10%;
+  height: 22%;
+}
+.house__link--status:hover .house__popup {
+  display: block;
+}
+.house__popup {
+  font-size: 16px;
+  right: 0;
+  position: absolute;
+  right: calc(100% + 5px);
+  bottom: 0;
+  z-index: 2;
+  display: none;
+  font-family: serif;
+  text-decoration: none;
+  pointer-events: none;
 }
 .house__cta {
   position: absolute;
@@ -573,6 +607,7 @@ h1 {
   display: none;
   font-family: serif;
   text-decoration: none;
+  pointer-events: none;
 }
 .bag__close {
   position: absolute;
@@ -914,6 +949,11 @@ h1 {
   background-size: cover;
   background-position: center;
 }
+.dialog-page--lasha {
+  background-image: url('../assets/lasha.webp');
+  background-size: cover;
+  background-position: center;
+}
 .dialog-page--gobelin {
   background-image: url('../assets/korni.webp');
   background-size: cover;
@@ -948,6 +988,13 @@ h1 {
 }
 .dialog-page__message--true {
   background: #d0f9d0;
+}
+.dialog-page__message--link {
+  cursor: pointer;
+  background: #acd6f4;
+}
+.dialog-page__message--link strong {
+  text-decoration: underline;
 }
 .dialog-page__message--question {
   background: #acd6f4;

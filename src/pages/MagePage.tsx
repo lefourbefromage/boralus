@@ -31,8 +31,8 @@ const MagePage: React.FC = () => {
 
   const questions: Record<number, string> = {
     1: '<p class="dialog-page__message dialog-page__message--question"><strong>Première question</strong>, quel est mon deuxième prénom ?</p>',
-    2: '<p class="dialog-page__message dialog-page__message--true">Pas mal. Maintenant on va remonter un peu le temps !</p> <p class="dialog-page__message dialog-page__message--question">J\'ai été malencontreusement enfermé durant ma carrière, où étais-ce ?</p>',
-    3: '<p class="dialog-page__message dialog-page__message--true">Bonne réponse !</p><p class="dialog-page__message dialog-page__message--question">Durant le <em>cataclysm</em>, j\'ai croisé des aventuriers mais un monstre m\'a éjecté dans le vide, qui était-ce ?</p>',
+    2: '<p class="dialog-page__message dialog-page__message--true">Pas mal. Maintenant on va remonter un peu le temps !</p> <p class="dialog-page__message dialog-page__message--question">J\'ai été malencontreusement enfermé durant ma carrière, où était-ce ?</p>',
+    3: '<p class="dialog-page__message dialog-page__message--true">Bonne réponse !</p><p class="dialog-page__message dialog-page__message--question">Durant le <em>cataclysme</em>, j\'ai croisé des aventuriers mais un monstre m\'a éjecté dans le vide, qui était-ce ?</p>',
     4: '<p class="dialog-page__message dialog-page__message--true">Bien joué...</p><p class="dialog-page__message">Vous connaissez ma femme ?</p><p class="dialog-page__message"> Elle est <strong>belle</strong> hein ?</p><p class="dialog-page__message dialog-page__message--question">Mais c\'est quoi son nom ?</p>',
     5: `<p class="dialog-page__message dialog-page__message--true">Ouais ouais ouais !</p><div class="dialog-page__message dialog-page__message--question">Je suis à l'origine de la création du meilleur sort jamais créé. Lequel est-ce ?
       <ul>
@@ -190,7 +190,7 @@ const MagePage: React.FC = () => {
           { isSuccess && (
             <div className="dialog-page__wrapper">
               <p className="dialog-page__message dialog-page__message--true">
-                  Je vois que vous me connaissez aussi bien que Grosciflard ! je suppose que je peux vous faire confiance. Voici un papier qu'il m'a donné la dernière fois mais je n'ai aucune idée de son utilité.
+                  Je vois que vous me connaissez aussi bien que Grosciflard !
               </p>
               <p className="dialog-page__message dialog-page__message--true">
                   Je suppose que je peux vous faire confiance. Voici un papier qu'il m'a donné la dernière fois mais je n'ai aucune idée de son utilité. 

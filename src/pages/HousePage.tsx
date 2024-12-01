@@ -88,6 +88,15 @@ const HousePage: React.FC = () => {
           </svg>
         )}
       </button>
+
+      <div className="house__link house__link--status" onMouseEnter={() => setHoveredClass('house__link--status')} onMouseLeave={() => setHoveredClass(null)}>
+        <div className="item house__popup">
+          <div className="item__title item__title--rare">Status de Sélénien</div>
+          <div className="item__level">Niveau d'objet 1</div>
+          <div className="item__bind">Lié quand ramassé</div>
+          <div className="item__desc">"Une statuette en bois en forme de Sélénien, "MADE IN HR" est gravé sur la base." </div>
+        </div>
+      </div>
         
       {links.map((link, index) =>
         link.isButton ? (
@@ -130,7 +139,7 @@ const HousePage: React.FC = () => {
           close
           </button>
 
-          <a href="/registre" className="bag__item bag__item--chest bag__item--book">
+          <a href="/registre" target="_blank" className="bag__item bag__item--chest bag__item--book">
             <div className="item bag__popup">
               <div className="item__title item__title--uncommon">Registre de rendez-vous</div>
               <div className="item__level">Niveau d'objet 1</div>
@@ -145,7 +154,7 @@ const HousePage: React.FC = () => {
               <div className="item__title item__title--rare">Bout de papier déchiré - 01</div>
               <div className="item__level">Niveau d'objet 1</div>
               <div className="item__bind">Lié quand ramassé</div>
-              <div className="item__desc">"Le coin d'un papier déchiré avec des symboles dessiné." </div>
+              <div className="item__desc">"Le coin d'un papier déchiré avec des symboles dessinés." </div>
               <div className="item__use">{`<Cliquer pour voir>`}</div>
             </div>
           </a>
@@ -156,7 +165,7 @@ const HousePage: React.FC = () => {
                 <div className="item__title item__title--rare">Bout de papier déchiré - 02</div>
                 <div className="item__level">Niveau d'objet 1</div>
                 <div className="item__bind">Lié quand ramassé</div>
-                <div className="item__desc">"Le centre d'un papier déchiré avec des symboles dessiné." </div>
+                <div className="item__desc">"Le centre d'un papier déchiré avec des symboles dessinés." </div>
                 <div className="item__use">{`<Cliquer pour voir>`}</div>
               </div>
             </a>
@@ -168,7 +177,7 @@ const HousePage: React.FC = () => {
                 <div className="item__title item__title--rare">Bout de papier déchiré - 03</div>
                 <div className="item__level">Niveau d'objet 1</div>
                 <div className="item__bind">Lié quand ramassé</div>
-                <div className="item__desc">"Un autre morceau du papier déchiré avec des symboles dessiné." </div>
+                <div className="item__desc">"Un autre morceau du papier déchiré avec des symboles dessinés." </div>
                 <div className="item__use">{`<Cliquer pour voir>`}</div>
               </div>
             </a>
@@ -181,7 +190,7 @@ const HousePage: React.FC = () => {
                 <div className="item__title item__title--rare">Bout de papier déchiré - 04</div>
                 <div className="item__level">Niveau d'objet 1</div>
                 <div className="item__bind">Lié quand ramassé</div>
-                <div className="item__desc">"Un coin du morceau du papier déchiré avec des symboles dessiné." </div>
+                <div className="item__desc">"Un coin du morceau du papier déchiré avec des symboles dessinés." </div>
                 <div className="item__use">{`<Cliquer pour voir>`}</div>
               </div>
             </a>
@@ -230,15 +239,6 @@ const HousePage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bag__item bag__item--status">
-            <div className="item bag__popup">
-              <div className="item__title item__title--rare">Statuette en bois</div>
-              <div className="item__level">Niveau d'objet 1</div>
-              <div className="item__bind">Lié quand ramassé</div>
-              <div className="item__desc">"Une statuette en forme d'aigle, "MADE IN HR" est gravé sous la base."</div>
-            </div>
-          </div>
-
           <a href="/assets/rando.jpeg" target='_blank' className="bag__item bag__item--photo">
             <div className="item bag__popup">
               <div className="item__title item__title--legendary">Photo dans un tube</div>
@@ -249,7 +249,7 @@ const HousePage: React.FC = () => {
             </div>
           </a>
 
-          <img src="/assets/bag.png" alt="Bag" />
+          <img src="/assets/bag.webp" alt="Bag" />
         </div>
       )}
     </div>

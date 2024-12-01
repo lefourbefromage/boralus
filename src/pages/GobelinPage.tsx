@@ -32,18 +32,10 @@ const GobelinPage: React.FC = () => {
         </div>
 
         <div className="dialog-page__message" style={{ animationDelay: '30s' }}>
-          Ah ! Il m'a aussi envoyé celui la.
+          Ah ! Il m'a aussi envoyé celui là.
         </div>
 
-        <div className="dialog-page__message dialog-page__message--audio" style={{ animationDelay: '32s' }}>
-          <audio controls src="assets/allo2.mp3"></audio>
-        </div>
-
-        <div className="dialog-page__message" style={{ animationDelay: '40s' }}>
-          Et le dernier...
-        </div>
-
-        <div className="dialog-page__message dialog-page__message--audio" style={{ animationDelay: '42s' }}>
+        <div className="dialog-page__message dialog-page__message--audio" style={{ animationDelay: '35s' }}>
           <audio controls src="assets/code.mp3"></audio>
         </div>
       </div>

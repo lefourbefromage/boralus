@@ -16,6 +16,7 @@ const BookPage: React.FC = () => {
       'gorgonzormu,valdrakken': '/fromage',
       'izkrk\'tkrzn,cite des fils': '/egg',
       'kornipiochon,gadgetzan': '/gobelin',
+      'lasha,feralas' : '/lasha',
     };
   
     // Normaliser les entrées pour ignorer les majuscules et accents
@@ -39,7 +40,6 @@ const BookPage: React.FC = () => {
       <a href="/house" type="button" className="house__cta">
         Fermer le livre
       </a>
-
 
       <div className="book__form">
         <h2>Aller à la rencontre de</h2>

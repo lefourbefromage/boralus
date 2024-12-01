@@ -66,7 +66,6 @@ h1 {
   align-items: center;
   justify-content: center;
 
-
   &__container {
     align-self: center;
     display: flex;
@@ -78,6 +77,20 @@ h1 {
   &__form {
     display: grid;
     gap: 20px;
+
+    &--home {
+      max-width: 400px;
+
+      label {
+        text-align: center;
+        font-size: 25px;
+        border: 20px solid;
+        border-image: url(../assets/button-secondary-border.png);
+        border-image-slice: 20 20 fill;
+      }
+    }
+
+   
 
     input {
       background: white;
@@ -250,6 +263,10 @@ h1 {
     --background: url('../assets/bag.webp');
   }
 
+  &--status {
+    --background: url('../assets/status.webp');
+  }
+
   &:hover:before {
     opacity: 1;
   }
@@ -287,6 +304,32 @@ h1 {
       width: 8%;
       height: 14%;
     }
+
+    &--status {
+      bottom: 36%;
+      right: 33%;
+      width: 10%;
+      height: 22%;
+
+      &:hover {
+        .house__popup {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__popup {
+    font-size: 16px;
+    right: 0;
+    position: absolute;
+    right: calc(100% + 5px);
+    bottom: 0;
+    z-index: 2;
+    display: none;
+    font-family: serif;
+    text-decoration: none;
+    pointer-events: none;
   }
 
   &__cta {
@@ -500,6 +543,7 @@ h1 {
     display: none;
     font-family: serif;
     text-decoration: none;
+    pointer-events: none;
   }
 
   &__close {
@@ -944,6 +988,12 @@ h1 {
     background-position: center;
   }
 
+  &--lasha {
+    background-image: url('../assets/lasha.webp');
+    background-size: cover;
+    background-position: center;
+  }
+
   &--gobelin {
     background-image: url('../assets/korni.webp');
     background-size: cover;
@@ -982,6 +1032,16 @@ h1 {
 
   &--true {
     background: rgb(208, 249, 208);
+  }
+
+  &--link {
+    cursor: pointer;
+    background: rgb(172, 214, 244);
+
+    strong {
+      text-decoration: underline;
+
+    }
   }
 
   &--question {

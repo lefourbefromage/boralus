@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const EggPage: React.FC = () => {
+const LashaPage: React.FC = () => {
   const navigate = useNavigate();
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -22,13 +22,11 @@ const EggPage: React.FC = () => {
   }, [answeredQuestions, message]);
 
   const correctAnswers: Record<number, string | string[]> = {
-    1: "61,88",
-    2: ["ombrelune","la vallee d'ombrelune", "vallee d'ombrelune", "shadowmoon valley"]
+    1: "jambonneau",
   };
 
   const questions: Record<number, string> = {
-    1: '<p class="dialog-page__message dialog-page__message--question">Donnez moi l\'emplacement de l\'oeuf <br/> (Exemple pour [12.32, 40.17] => tapez 12,40)</p>',
-    2: '<p class="dialog-page__message dialog-page__message--true">Mes espions me disent que c\'est bien ça.</p><p class="dialog-page__message dialog-page__message--question">Mais dans quelle région ?</p>',
+    1: `<div class="dialog-page__message dialog-page__message--question" style="animation-delay: 2s;"> Pour accéder a la station, veuillez me fournir le mot de passe </div>`,
   };
 
   const normalizeInput = (input: string) =>
@@ -52,9 +50,7 @@ const EggPage: React.FC = () => {
           { question: questions[currentStep], answer },
         ]);
 
-        if (currentStep === 2) {
-          localStorage.setItem('clue04', 'true');
-          localStorage.setItem('toggleChestVisibility', 'true');
+        if (currentStep === 1) {
           setIsSuccess(true); // Marque le questionnaire comme terminé avec succès
         } else {
           setCurrentStep((prev) => prev + 1);
@@ -70,53 +66,21 @@ const EggPage: React.FC = () => {
   const resetQuestionnaire = () => {
     setCurrentStep(1);
     setAnsweredQuestions([]);
-    setMessage('Il y a rien la bas ?! Zou vouj fouteiz de Kej ?');
+    setMessage("Désolé, le temps c'est de l'argent.");
     setIsSuccess(false);
   };
 
   return (
-    <div className="dialog-page dialog-page--egg">
+    <div className="dialog-page dialog-page--lasha">
       <button className="house__cta house__cta--left" onClick={() => navigate('/house')}>Retourner à Boralus</button>
 
-      {!message && !isSuccess && localStorage.getItem('clue04') === 'true' ? (
-        <div className="dialog-page__content" ref={contentRef}>    
-            <div className="dialog-page__message" style={{ animationDelay: '0' }}>
-              Oui ?
-            </div>
-            <div className="dialog-page__message" style={{ animationDelay: '1s' }}>
-              Tu as déjà eu ce que tu voulais...
-            </div>
-            <div className="dialog-page__message" style={{ animationDelay: '2s' }}>
-              Le papier est dans le coffre de Grosciflard
-            </div>
-            <div className="dialog-page__message" style={{ animationDelay: '3s' }}>
-            File maintenant !
-            </div>
-        </div>  
-      ) : (
         <div className="dialog-page__content" ref={contentRef}>    
           <div className="dialog-page__message" style={{ animationDelay: '0s' }}>
-            Bonjour...<br/>
+            B'jour !
           </div>
 
-          <div className="dialog-page__message" style={{ animationDelay: '2s' }}>
-            vous avez des oeufs ?...<br/>
-          </div>
-          
-          <div className="dialog-page__message" style={{ animationDelay: '3.5s' }}>
-            J'échange informations contre oeufs. 
-          </div>
-
-          <div className="dialog-page__message" style={{ animationDelay: '4.5s' }}>
-            Grosse informations ? Gros oeufs
-          </div>
-
-          <a href='' target="_blank" className="dialog-page__message" style={{ animationDelay: '6.5s' }}>
-            <img src='./assets/egg-location.webp'/>
-          </a>
-
-          <div className="dialog-page__message" style={{ animationDelay: '6.5s' }}>
-            Ça être oeuf de Chimère et moi veux oeuf de chimère dans ma collection.
+          <div className="dialog-page__message" style={{ animationDelay: '1s' }}>
+           Bienv'nue à la Station du Plaisir
           </div>
 
           {/* Messages d'erreur */}
@@ -136,7 +100,7 @@ const EggPage: React.FC = () => {
           ))}
 
           {/* Affiche la question actuelle uniquement si le questionnaire n'est pas terminé */}
-          {!isSuccess && currentStep <= 2 && (
+          {!isSuccess && currentStep <= 1 && (
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -152,9 +116,8 @@ const EggPage: React.FC = () => {
               ) : (
                 <div className="dialog-page__wrapper" data-question={currentStep} dangerouslySetInnerHTML={{ __html: questions[currentStep] }}></div>
               )}
-
-              
-              <div className="dialog-page__footer">
+                
+              <div className="dialog-page__footer" style={{ animationDelay: '3s' }}>
                 <input
                   type="text"
                   name="answer"
@@ -170,26 +133,48 @@ const EggPage: React.FC = () => {
           {/* Message final */}
           { isSuccess && (
             <div className="dialog-page__wrapper">
-              <p className="dialog-page__message dialog-page__message--true">
-                  Oeufs bientôt a moi !!!!
-              </p>
-              <p className="dialog-page__message dialog-page__message--true">
-                  Voila papier que druide m'a donné pour acheter oeuf.
-              </p>
-              <p className="dialog-page__message dialog-page__message--true">
-                Je met le papier dans le coffre de Grosciflard !
+              <p className="dialog-page__message dialog-page__message--true" style={{ animationDelay: '1s' }}>
+                  Ah ! C'est le code de Monsieur Grosciflard ça...
               </p>
 
-              <p className="dialog-page__message" style={{animationDelay: "10s"}}>
-                Qu'est-ce qui est apparu en premier : l'œuf ou le nérubien ? Laissez moi à mes occupations...
+              <p className="dialog-page__message" style={{ animationDelay: '2s' }}>
+                  Z'êtes pas au courant ? Ce gros druide nous a posé quelques soucis récemment. A cause de lui, les agents du SI7 sont venus fouiller dans mes affaires...
               </p>
+
+              <p className="dialog-page__message" style={{ animationDelay: '5s' }}>
+                J'vais pas passer par 4 rails, vot' copain il a clamsé. Il s'est engueulé avec des Elfes de sang et il a terminé dans l'eau.
+              </p>
+
+              <p className="dialog-page__message" style={{ animationDelay: '8s' }}>
+                Le soucis c'est qu'il sait pas nager ce con ! Un comble pour un druide, non ?! Du coup on l'a retrouvé le lendemain matin à flotter dans les bains...
+              </p>
+
+              <p className="dialog-page__message" style={{ animationDelay: '10s' }}>
+                J'ai ce petit souvenir pour vous ! Si vous voulez partager l'information à ses proches
+              </p>
+
+              <a href='' target="_blank" className="dialog-page__message dialog-page__message--photo" style={{ animationDelay: '12.5s' }}>
+                <img src='./assets/drown.webp'/>
+              </a>
+
+
+              <a href="https://forms.gle/i5G5Z4SqoGPiingt5" className="dialog-page__message dialog-page__message--link" style={{ animationDelay: '12.5s' }}>
+                Histoire de terminer un peu tout' nos affaires, vous devez remplir <strong>ce formulaire.</strong>
+              </a>
+
+              <p className="dialog-page__message" style={{ animationDelay: '12.5s' }}>
+                Vous devriez envoyer un p'tit mot à sa dame non ? 
+              </p>
+
+    
+
             </div>
           )}
         </div>
-      )};
+
     </div>
   );
 };
 
 
-export default EggPage;
+export default LashaPage;

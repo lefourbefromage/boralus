@@ -23,16 +23,16 @@ const FromagePage: React.FC = () => {
     {
       id: 2,
       type: 'text',
-      question: "Quel est le prix d’une tarte aux cerises maison de Thomas Miller (A²) ou d’un Poulet roti chez Olvia (H²) ? (exemple de réponse: '8po 8pa 88pc')",
+      question: "Quel est le prix d’une tarte aux cerises maison de Thomas Miller (A²) ou d’un Poulet roti chez Olvia (H²) ? (exemple de réponse: '8po8pa88pc')",
       answer: "Ce sont les bon prix!",
-      correctAnswer: '7pa 60pc',
+      correctAnswer: '7pa20pc',
     },
     {
       id: 3,
       type: 'radio',
       question: "À la banque de l'Aldor, de quelle couleur est la statuette de tigre vendue par les commissaires priseurs ?",
       answer: "Les pauvres n'ont toujours pas réussit a vendre cette babiole...",
-      options: ['Vert', 'Jaune', 'Rouge', 'Bleu', 'Violet'],
+      options: ['Jaune', 'Vert', 'Rouge', 'Bleu', 'Violet'],
       correctAnswer: 'Vert',
     },
     {
@@ -229,7 +229,7 @@ const FromagePage: React.FC = () => {
             </p>
 
             <p className='dialog-page__message' >
-              Je suis Président du comité de contrôle des trucs inutiles et j'ai besoin que vous checkez quelques trucs pour moi !
+              Je suis Président du comité de contrôle des trucs inutiles et j'ai besoin que vous checkiez quelques trucs pour moi !
             </p>
 
             {/* Message d'erreur */}
@@ -238,7 +238,7 @@ const FromagePage: React.FC = () => {
 
             {/* Affiche les questions précédentes et leurs réponses */}
             {questions.slice(0, currentStep).map((q) => (
-              <div key={q.id} className="dialog-page__wrapper">
+              <div key={q.id} className="dialog-page__wrapper" >
                 <p className="dialog-page__message dialog-page__message--question">{q.question}</p>
                 <p className="dialog-page__message dialog-page__message--self">{answers[q.id]}</p>
                 <p className="dialog-page__message dialog-page__message--true">{q.answer}</p>
@@ -250,8 +250,6 @@ const FromagePage: React.FC = () => {
               <p className='dialog-page__message dialog-page__message--question'>{questions[currentStep].question}</p>
               {renderQuestion(questions[currentStep])}
             </div>
-
-        
 
             { success ? (
               <>
