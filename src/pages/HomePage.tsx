@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="main__container">
       <form className="main__form main__form--home" onSubmit={handleSubmit}>
-        <label htmlFor="secret-input">Qu'elle est le nom de la maison de Grosciflard ?</label>
+        <label htmlFor="secret-input">Quel est le nom de la maison de Grosciflard ?</label>
         <input
           type="text"
           placeholder="Nom de la maison"
