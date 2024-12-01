@@ -26,7 +26,7 @@ const LashaPage: React.FC = () => {
   };
 
   const questions: Record<number, string> = {
-    1: `<div class="dialog-page__message dialog-page__message--question" style="animation-delay: 2s;"> Pour accéder a la station, veuillez me fournir le mot de passe </div>`,
+    1: `<div class="dialog-page__message dialog-page__message--question" style="animation-delay: 2s;"> Pour accéder à la station, veuillez me fournir le mot de passe </div>`,
   };
 
   const normalizeInput = (input: string) =>
